@@ -1,0 +1,94 @@
+.\" This file is part of jpegpixi, a program to interpolate pixels in
+.\" JFIF image files.
+.\" Copyright (C) 2004, 2005 Martin Dickopp
+.
+.\" Jpegpixi is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published
+.\" by the Free Software Foundation; either version 2 of the License,
+.\" or (at your option) any later version.
+.
+.\" Jpegpixi is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.
+.\" You should have received a copy of the GNU General Public License
+.\" along with jpegpixi; if not, write to the Free Software
+.\" Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+.\" USA.
+.
+.TH JPEGHOTP 1 18-Apr-2004 "@PACKAGE_STRING@" "Userkommandos"
+.SH NAME
+jpeghotp \- findet leuchtende oder ausgefallene Pixel in sonst schwarzen oder weißen JPEG-Bildern
+.SH SYNTAX
+.B jpeghotp
+.RI [ OPTION ]...\&
+.I JPEG-DATEI
+.RI [ PIXELBLOCK-DATEI ]
+.SH BESCHREIBUNG
+Jpeghotp findet leuchtende Pixel in einem sonst schwarzen JPEG-Bild
+(Standard) oder ausgefallene Pixel in einem sonst weißen JPEG­Bild (wenn
+die Option
+.B \-\-invert
+angegeben wurde). Die
+Ausgabe ist als Pixelblock-Datei für das Programm
+.BR jpegpixi (1)
+geeignet. Eine typische Anwendung ist die Verarbeitung eines Bildes, das
+mit einer Digitalkamera mit CCD-Defekten aufgenommen wurde.
+.PP
+Um ein schwarzes Bild zu erhalten, macht man eine Aufnahme bei völliger
+Dunkelheit oder mit abgedeckter Linse. Um ein weißes Bild zu erhalten,
+macht man eine überbelichtete Aufnahme eines gut beleuchteten Blattes
+weißen Papiers.
+.PP
+.I JPEG-DATEI
+ist der Dateiname des zu lesenden JPEG-Bildes. Es kann
+.B \-
+angegeben werden, was für Standardeingabe steht.
+.PP
+.I PIXELBLOCK-DATEI
+ist der Name der Datei, in die die Koordinaten und Größen der
+leuchtenden (oder ausgefallenen) Pixel geschrieben werden. Wenn diese
+Angabe weggelassen wird, werden die Koordinaten und Größen auf die
+Standardausgabe ausgegeben.
+.SH OPTIONEN
+.IP "\fB\-t\fR \fISCHWELLWERT\fR, \fB\-\-threshold\fR=\fISCHWELLWERT\fR"
+Angabe des Schwellwertes zwischen Rauschen und Signal: Pixelhelligkeiten
+unterhalb des Schwellwertes werden als CCD-Rauschen angesehen,
+Helligkeiten darüber als leuchtende Pixel.
+.I SCHWELLWERT
+muß eine Zahl zwischen 0 und 100 gefolgt von einem Prozentzeichen
+.RB ( % )
+sein. Der Standardwert ist
+.BR 10% .
+.IP "\fB\-i\fr, \fB\-\-invert\fR"
+Bild invertieren. Wenn diese Option angegeben wurde, werden ausgefallene
+Pixel in einem sonst weißen Bild statt leuchtender Pixel in einem sonst
+schwarzen Bild gefunden.
+.IP "\fB\-c\fR, \fB\-\-comments\fR"
+Die Helligkeiten der leuchtenden (oder ausgefallenen) Pixel werden als
+Kommentare mit ausgegeben. Dies ist hilfreich, wenn von Hand
+Feineinstellungen an der Pixelblock-Datei vorgenommen werden sollen.
+.IP "\fB\-\-help\fR"
+Zeigt einen kurzen Hilfe-Text an und beendet das Programm danach sofort.
+.IP "\fB\-\-version\fR"
+Zeigt die Programmversion an und beendet das Programm danach sofort.
+.SH FEHLER
+Bitte melden Sie Programmfehler an <martin\-jpegpixi@zero\-based.org>.
+.SH COPYRIGHT
+Copyright \(co 2003, 2004, 2005 Martin Dickopp
+.PP
+Jpeghotp ist Freie Software; es darf unter den Bedingungen der "GNU
+General Public License" Version 2 (oder wahlweise einer späteren Version
+dieser Lizenz) kopiert und/oder modifiziert werden. Soweit gesetzlich
+zulässig, ist jegliche Gewährleistung ausgeschlossen.
+.SH "SIEHE AUCH"
+.BR jpegpixi (1)
+.PP
+Die Jpegpixi-Homepage:
+http://www.zero\-based.org/software/jpegpixi/
+.
+.\" Local Variables:
+.\" mode: nroff
+.\" coding: iso-8859-1
+.\" End:

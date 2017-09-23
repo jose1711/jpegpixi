@@ -1,0 +1,339 @@
+# French translations of the jpegpixi package.
+# Copyright (C) 2004, 2005 Stephan Peccini
+# This file is distributed under the same license as the jpegpixi package.
+# Stephan Peccini <stephan@tesenca.info>, 2004, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jpegpixi 1.1.0\n"
+"Report-Msgid-Bugs-To: Martin Dickopp <martin@zero-based.org>\n"
+"POT-Creation-Date: 2005-11-20 21:40+0100\n"
+"PO-Revision-Date: 2005-05-25 20:42+0200\n"
+"Last-Translator: Stephan Peccini <stephan@tesenca.info>\n"
+"Language-Team: French <stephan@tesenca.info>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#: file.c:80 file.c:171 file.c:255 file.c:261 file.c:287 jpegpixi.c:178 jpegpixi.c:208 jpegpixi.c:281 jpeghotp.c:189
+#: jpeghotp.c:257 jpeghotp.c:270 jpeghotp.c:291 jpeghotp.c:302 jpeghotp.c:320
+#, c-format
+msgid "%s: %s: %s\n"
+msgstr "%s: %s : %s\n"
+
+#: file.c:106
+#, c-format
+msgid "%s: %s: Image has zero size\n"
+msgstr "%s: %s : L'image a une taille nulle\n"
+
+#. TRANSLATORS: Please use the "multiplication sign" (Unicode character <U00D7>)
+#. in place of the "x".
+#: file.c:117
+#, c-format
+msgid "%s: %s: size %ux%u, colorspace "
+msgstr "%s: %s : taille %u×%u, espace de couleurs "
+
+#: file.c:118 file.c:237 file.c:282 jpeghotp.c:316
+msgid "STDIN"
+msgstr "STDIN"
+
+#: file.c:124
+msgid "grayscale"
+msgstr "échelle des gris"
+
+#: file.c:144
+msgid "unknown"
+msgstr "inconnu"
+
+#: file.c:147
+msgid ", sampling"
+msgstr ", échantillonnage"
+
+#. TRANSLATORS: Please use the "multiplication sign" (Unicode character <U00D7>)
+#. in place of the "x".
+#: file.c:158
+#, c-format
+msgid " %dx%d"
+msgstr " %d×%d"
+
+#. TRANSLATORS: Please use the "multiplication sign" (Unicode character <U00D7>)
+#. in place of the "x".
+#: file.c:236
+#, c-format
+msgid "%s: %s: %u,%u,%u,%u ignored: Image size %ux%u\n"
+msgstr "%s: %s: %u,%u,%u,%u ignoré : Taille de l'image %u×%u\n"
+
+#: file.c:284 jpeghotp.c:291
+msgid "STDOUT"
+msgstr "STDOUT"
+
+#: interpolate.c:101
+#, c-format
+msgid "%s: interpolating %u,%u,%u,%u (%s)\n"
+msgstr "%s : interpole %u,%u,%u,%u (%s)\n"
+
+#: interpolate.c:103 jpegpixi.c:455 jpegpixi.c:457
+msgid "vertical"
+msgstr "vertical"
+
+#: interpolate.c:103 jpegpixi.c:455 jpegpixi.c:457
+msgid "horizontal"
+msgstr "horizontal"
+
+#: interpolate.c:103 jpegpixi.c:455 jpegpixi.c:457
+msgid "2-dim"
+msgstr "2D"
+
+#: jpegpixi.c:134
+#, c-format
+msgid "%s: invalid interpolation method `%s'\n"
+msgstr "%s : méthode d'interpolation invalide `%s'\n"
+
+#: jpegpixi.c:145 jpeghotp.c:151
+#, c-format
+msgid "%s: source filename missing\n"
+msgstr "%s : nom du fichier source manquant\n"
+
+#: jpegpixi.c:147 jpeghotp.c:153
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "Essayer `%s --help' pour avoir plus d'informations.\n"
+
+#: jpegpixi.c:155
+#, c-format
+msgid "%s: destination filename missing\n"
+msgstr "%s : nom du fichier destination manquant\n"
+
+#: jpegpixi.c:194
+#, c-format
+msgid "%s: %s:%u: %u,%u,%u,%u ignored: overlaps with %u,%u,%u,%u\n"
+msgstr "%s : %s:%u: %u,%u,%u,%u ignoré : se recouvre avec %u,%u,%u,%u\n"
+
+#: jpegpixi.c:201
+#, c-format
+msgid "%s: %s:%u: invalid pixel block specification ignored\n"
+msgstr "%s : %s:%u: spécification ignorée du bloc invalide de pixels\n"
+
+#: jpegpixi.c:229
+#, c-format
+msgid "%s: %u,%u,%u,%u ignored: overlaps with %u,%u,%u,%u\n"
+msgstr "%s : %u,%u,%u,%u ignoré : se recouvre avec %u,%u,%u,%u\n"
+
+#: jpegpixi.c:235
+#, c-format
+msgid "%s: invalid pixel block specification `%s'\n"
+msgstr "%s : spécification invalide du bloc de pixels `%s'\n"
+
+#: jpegpixi.c:453
+#, c-format
+msgid "%s: incompatible adjacent points %u,%u,%u,%u (%s) and %u,%u,%u,%u (%s) ignored\n"
+msgstr "%s : points adjacents incompatibles %u,%u,%u,%u (%s) et %u,%u,%u,%u (%s) ignorés\n"
+
+#: optpixi.c:30 opthotp.c:30
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s : option inconnue `--%s'\n"
+
+#: optpixi.c:34 opthotp.c:34
+#, c-format
+msgid "%s: option `--%s' is ambiguous\n"
+msgstr "%s : l'option `--%s' est ambigüe\n"
+
+#: optpixi.c:38 opthotp.c:38
+#, c-format
+msgid "%s: option `--%s' requires an argument\n"
+msgstr "%s : l'option `--%s' attend un argument\n"
+
+#: optpixi.c:42 opthotp.c:42
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s : l'option `--%s' n'a pas d'argument\n"
+
+#: optpixi.c:46 opthotp.c:46
+#, c-format
+msgid "%s: unrecognized option `-%c'\n"
+msgstr "%s : option inconnue `-%c'\n"
+
+#: optpixi.c:50 opthotp.c:50
+#, c-format
+msgid "%s: option `-%c' requires an argument\n"
+msgstr "%s : l'option `-%c' a besoin d'un argument\n"
+
+#: optpixi.c:75
+msgid ""
+"  -f, --blocks-file=FILE    read pixel block specifications from FILE\n"
+"  -m, --method=METHOD       use interpolation method METHOD [default: linear]\n"
+"  -v, --verbose             display coordinates and size of each pixel block\n"
+"                              that is interpolated\n"
+"  -i, --info                display information about the image\n"
+"  -s, --strip               do not copy comment and extra markers\n"
+"      --help                display this help text and exit\n"
+"      --version             display version information and exit\n"
+msgstr ""
+"  -f, --blocks-file=FILE    lit les spécifications des blocs de pixels depuis\n"
+"                              FILE\n"
+"  -m, --method=METHOD       utilise la méthode d'interpolation METHOD [défaut:\n"
+"                              linear]\n"
+"  -v, --verbose             affiche les coordonnées et taille de chaque bloc\n"
+"                              de pixels qui est interpolé\n"
+"  -i, --info                affiche les information à propos de l'image\n"
+"  -s, --strip               ne pas copier les commentaires et les marqueurs\n"
+"                              supplémentaires\n"
+"      --help                affiche ce texte d'aide et sort\n"
+"      --version             affiche l'information de version et sort\n"
+
+#: optpixi.c:315
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE DEST [[D:]X,Y[,S]|[,SX,SY]]...\n"
+"Interpolate pixels in JFIF image files.\n"
+"\n"
+"Pixel block specification:\n"
+"  D     can be `V' or `v' (vertical 1D interpolation),\n"
+"               `H' or `h' (horizontal 1D interpolation),\n"
+"               `2'        (2D interpolation) [default];\n"
+"  X,Y   specifies the top left corner of the pixel block to be interpolated;\n"
+"  S     specifies the size of the block [default: 1];\n"
+"  SX,SY specifies separate sizes for the X and Y direction.\n"
+"All numbers can be absolute coordinates/sizes, or percentages of the image\n"
+"size (if followed by a `%%' character).\n"
+"\n"
+"Options:\n"
+msgstr ""
+"Usage : %s [OPTION]... SOURCE DEST [[D:]X,Y[,S]|[,SX,SY]]...\n"
+"Interpolation des pixels dans les fichiers image JFIF.\n"
+"\n"
+"Spécification du bloc de pixels :\n"
+"  D     peut être `V` ou `v` (interpolation verticale 1D),\n"
+"                  `H' ou `h' (interpolation horizontale 1D),\n"
+"                  `2'        (interpolation 2D) [défaut];\n"
+"  X,Y   spécifient le coin haut gauche du bloc de pixels\n"
+"        devant être interpolé ;\n"
+"  S     spécifie la taille du bloc [défaut: 1];\n"
+"  SX,SY spécifient des tailles séparées pour les directions X et Y.\n"
+"Tous les nombres peuvent être des tailles/coordonnées absolues ou des\n"
+"pourcentages de la taille de l'image (si suivis par un `%%').\n"
+"\n"
+"Options :\n"
+
+#. TRANSLATORS: Please align the right text column in the
+#. "Interpolation methods" section with the right text column in the
+#. "Options" section.
+#: optpixi.c:332
+msgid ""
+"\n"
+"Interpolation methods:\n"
+"  0, av, average            average of adjacent pixels\n"
+"  1, li, linear             (bi)linear interpolation\n"
+"  2, qu, quadratic          (bi)quadratic interpolation\n"
+"  3, cu, cubic              (bi)cubic interpolation\n"
+msgstr ""
+"\n"
+"Méthodes d'interpolation :\n"
+"  0, av, average            moyenne des pixels adjacents\n"
+"  1, li, linear             interpolation (bi)linéaire\n"
+"  2, qu, quadratic          interpolation (bi)quadratique\n"
+"  3, cu, cubic              interpolation (bi)cubique\n"
+
+#. TRANSLATORS: Please include the information that bug reports
+#. should be send in English.  E.g., translate "Please report bugs
+#. (in English) to ...".
+#: optpixi.c:341 opthotp.c:261
+msgid ""
+"\n"
+"Please report bugs to <martin@zero-based.org>.\n"
+msgstr ""
+"\n"
+"Merci d'envoyer les rapports de bugs en anglais à :\n"
+"<martin@zero-based.org>.\n"
+
+#. TRANSLATORS: Please leave the copyright statement intact, but replace
+#. "(C)" with the "copyright sign" (Unicode character <U00A9>).
+#: optpixi.c:354
+msgid ""
+"Copyright (C) 2002, 2003, 2004, 2005 Martin Dickopp\n"
+"\n"
+msgstr ""
+"Copyright © 2002, 2003, 2004, 2005 Martin Dickopp\n"
+"\n"
+
+#. TRANSLATORS: Please don't translate the warranty disclaimer
+#. literally, but replace it with a text which has a legal effect as
+#. close as possible to the original in the jurisdiction(s) where
+#. your language is used. If unsure, replace it with a translation
+#. of "There is no warranty, to the extent allowed by law."
+#: optpixi.c:361 opthotp.c:281
+msgid ""
+"This program is free software; it may be copied and/or modified under the\n"
+"terms of the GNU General Public License version 2 or (at your option) any\n"
+"later version. There is NO warranty; not even for MERCHANTABILITY or FIT-\n"
+"NESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"Ce logiciel est libre; voir les sources pour les conditions de\n"
+"reproduction. AUCUNE garantie n'est donnée, tant pour des raisons\n"
+"COMMERCIALES que pour RÉPONDRE À UN BESOIN PARTICULIER.\n"
+
+#: jpeghotp.c:131
+#, c-format
+msgid "%s: invalid threshold `%s'\n"
+msgstr "%s : seuil invalide `%s'\n"
+
+#: jpeghotp.c:163
+#, c-format
+msgid "%s: unexpected argument `%s'\n"
+msgstr "%s : argument inattendu `%s'\n"
+
+#: jpeghotp.c:286
+#, c-format
+msgid "\t# luminosity: %u.%02u%%"
+msgstr "\t# luminosité : %u.%02u%%"
+
+#: opthotp.c:71
+msgid ""
+"  -t, --threshold=THRESHOLD    specify threshold between noise and signal\n"
+"                                 [default: 10%]\n"
+"  -i, --invert                 invert image (i.e. find dead pixels in an\n"
+"                                 otherwise white image)\n"
+"  -c, --comments               output comments with luminosities of hot pixel\n"
+"                                 blocks\n"
+"      --help                   display this help text and exit\n"
+"      --version                display version information and exit\n"
+msgstr ""
+"  -t, --threshold=THRESHOLD    spécifie le seuil entre le bruit et le signal\n"
+"                                 [défaut: 10%]\n"
+"  -i, --invert                 inverse l'image (i.e. trouve les pixels morts\n"
+"                                 dans une image autrement blanche)\n"
+"  -c, --comments               affiche les commentaires avec les luminosités\n"
+"                                 des blocs de pixels chauds\n"
+"      --help                   affiche ce texte d'aide et sort\n"
+"      --version                affiche l'information de version et sort\n"
+
+#: opthotp.c:251
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... JPEG-FILE [PIXEL-BLOCKS-FILE]\n"
+"Find hot pixels in an otherwise black JPEG image (default) or dead pixels in an\n"
+"otherwise white JPEG image (if the `--invert' option is specified). Write their\n"
+"coordinates to a pixel blocks file suitable for the jpegpixi program.\n"
+"\n"
+"Options:\n"
+msgstr ""
+"Usage : %s [OPTION]... JPEG-FILE [PIXEL-BLOCKS-FILE]\n"
+"Trouve les pixels chauds dans une image JPEG noire (défaut) ou les pixels morts\n"
+"dans une image blanche (si l'option -invert a été choisie) et écrit leurs\n"
+"coordonnées dans un fichier de blocs de pixels utilisable par le programme\n"
+"jpegpixi.\n"
+"\n"
+"Options :\n"
+
+#. TRANSLATORS: Please leave the copyright statement intact, but replace
+#. "(C)" with the "copyright sign" (Unicode character <U00A9>).
+#: opthotp.c:274
+msgid ""
+"Copyright (C) 2003, 2004, 2005 Martin Dickopp\n"
+"\n"
+msgstr ""
+"Copyright © 2003, 2004, 2005 Martin Dickopp\n"
+"\n"

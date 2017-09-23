@@ -1,0 +1,92 @@
+.\" This file is part of jpegpixi, a program to interpolate pixels in
+.\" JFIF image files.
+.\" Copyright (C) 2003, 2004, 2005 Martin Dickopp
+.
+.\" The Finnish translation of this manual page is
+.\" Copyright (C) 2004, 2005 Jarno Elonen
+.
+.\" Jpegpixi is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published
+.\" by the Free Software Foundation; either version 2 of the License,
+.\" or (at your option) any later version.
+.
+.\" Jpegpixi is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.
+.\" You should have received a copy of the GNU General Public License
+.\" along with jpegpixi; if not, write to the Free Software
+.\" Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+.\" USA.
+.
+.TH JPEGHOTP 1 18-Apr-2004 "@PACKAGE_STRING@" "Käyttökomennot"
+.SH NIMI
+jpeghotp \- etsii palaneita ja kuolleita pikseleitä muuten mustasta tai valkoisesta JPEG-kuvasta
+.SH YLEISKATSAUS
+.B jpeghotp
+.RI [ VALITSIN ]...\&
+.I JPEG-TIEDOSTO
+.RI [ PIKSELI-ALUE-TIEDOSTO ]
+.SH DESCRIPTION
+Jpeghotp etsii automaattisesti palaneita pikseleitä muuten mustasta JPEG-kuvasta (oletusarvo) tai
+kuolleita pikseleitä muuten valkoisesta kuvasta (kun käytetään .B \-\-invert \-valitsinta).
+Tuloksena on
+.BR jpegpixi (1)
+-ohjelmalle sopivassa muodossa oleva pikselialueiden määritystiedosto.
+Ohjelmaa käytetään tyypillisesti viallisella CCD-kennolla varustetulla digitaalikameralla
+otettujen kuvien prosessoimiseen.
+.PP
+Tällöin ohjelmalle syötettävä musta kuva otetaan täysin pimeässä
+tilassa tai linssi peitettynä ja valkoinen kuva ottamalla valkoisesta paperista
+ylivalottunut kuva kirkkaassa valaistuksessa.
+.PP
+.I JPEG-KUVA
+on luettavan JPEG-kuvan tiedostonimi. Tämä voidaan myös korvata merkillä
+.BR \- ,
+joka tarkoittaa stdin-laitetta.
+.PP
+.I PIKSELI-ALUE-TIEDOSTO
+on sen tiedoston nimi johon löydettyjen viallisten pikselialueiden koordinaatit ja koot kirjoitetaan.
+Jos nimeä ei ole annettu, tulostetaan tiedot stdout-laitteelle.
+.SH VALITSIMET
+.IP "\fB\-t\fR \fIKYNNYSARVO\fR, \fB\-\-threshold\fR=\fIKYNNYSARVO\fR"
+Määrää kohinan ja signaalin erottavan kynnysarvon. Arvon alle jäävät pikselikirkkaudet
+tulkitaan CCD-kohinaksi ja ylittävät palaneiksi pikseleiksi.
+.I KYNNYSARVO
+täytyy olla numero välillä 0 - 100 oleva numero ja sen perässä täytyy olla prosenttimerkki
+.RB ( % ).
+Oletusarvo on
+.BR 10% .
+.IP "\fB\-i\fr, \fB\-\-invert\fR"
+Käyttää laskennassa negatiivikuvaa. Tätä valitsinta käytettäessä ohjelma ei etsi mustasta kuvasta
+palaneita pikseleitä vaan valkoisesta kuvasta kuolleita pikseleitä.
+.IP "\fB\-c\fR, \fB\-\-comments\fR"
+Tulostaa palaneiden (tai kuolleiden) pikselien kirkkaudet kommenteissa. Tästä voi olla
+apua pikselialueita käsin säädettäessä.
+.IP "\fB\-\-help\fR"
+Näyttää lyhyen opasteen ja poistuu.
+.IP "\fB\-\-version\fR"
+Näyttää versiotiedot ja poistuu.
+.SH VIAT
+Vioista voi ilmoittaa (englanniksi) osoitteeseen <martin\-jpegpixi@zero\-based.org>.
+.SH TEKIJÄNOIKEUDET
+Copyright \(co 2003, 2004, 2005 Martin Dickopp
+.PP
+Takuuta EI ole; ei edes MYYNTIKUNNOSTA tai SOVELTUVUUDESTA TIETTYYN
+TARKOITUKSEEN. Voit levittää ohjelmasta kopioita GNU General Public
+Licensen mukaisesti.
+Tiedostosta COPYING löydät lisätietoja näistä seikoista.
+.PP
+Ohjeen suomenkielisen käännöksen tekijänoikeus on \(co 2004, 2005 Jarno Elonen
+<elonen@iki.fi>.
+.SH "KATSO MYÖS"
+.BR jpegpixi (1)
+.PP
+Jpegpixi:n kotisivu:
+http://www.zero\-based.org/software/jpegpixi/
+.
+.\" Local Variables:
+.\" mode: nroff
+.\" coding: iso-8859-1
+.\" End:

@@ -1,0 +1,123 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Define to 1 if you have the declaration of `bindtextdomain', and to 0 if
+   you don't. */
+#undef HAVE_DECL_BINDTEXTDOMAIN
+
+/* Define to 1 if you have the declaration of `gettext', and to 0 if you
+   don't. */
+#undef HAVE_DECL_GETTEXT
+
+/* Define to 1 if you have the declaration of `LC_MESSAGES', and to 0 if you
+   don't. */
+#undef HAVE_DECL_LC_MESSAGES
+
+/* Define to 1 if you have the declaration of `ngettext', and to 0 if you
+   don't. */
+#undef HAVE_DECL_NGETTEXT
+
+/* Define to 1 if you have the declaration of `setlocale', and to 0 if you
+   don't. */
+#undef HAVE_DECL_SETLOCALE
+
+/* Define to 1 if you have the declaration of `strchr', and to 0 if you don't.
+   */
+#undef HAVE_DECL_STRCHR
+
+/* Define to 1 if you have the declaration of `strerror', and to 0 if you
+   don't. */
+#undef HAVE_DECL_STRERROR
+
+/* Define to 1 if you have the declaration of `textdomain', and to 0 if you
+   don't. */
+#undef HAVE_DECL_TEXTDOMAIN
+
+/* Define to 1 if you have the <errno.h> header file. */
+#undef HAVE_ERRNO_H
+
+/* Define to 1 if you have the `fgetc_unlocked' function. */
+#undef HAVE_FGETC_UNLOCKED
+
+/* Define to 1 if you have the <float.h> header file. */
+#undef HAVE_FLOAT_H
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define if package `jpeglib' is available. */
+#undef HAVE_JPEGLIB
+
+/* Define to 1 if you have the <libintl.h> header file. */
+#undef HAVE_LIBINTL_H
+
+/* Define to 1 if you have the <locale.h> header file. */
+#undef HAVE_LOCALE_H
+
+/* Define to 1 if you have the <malloc.h> header file. */
+#undef HAVE_MALLOC_H
+
+/* Define to 1 if you have the <math.h> header file. */
+#undef HAVE_MATH_H
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* Define to 1 to enable Native Language Support. */
+#undef HAVE_NLS
+
+/* Define to 1 if the system has the type `ptrdiff_t'. */
+#undef HAVE_PTRDIFF_T
+
+/* Define to 1 if the system has the type `size_t'. */
+#undef HAVE_SIZE_T
+
+/* Define to 1 if the system has the type `ssize_t'. */
+#undef HAVE_SSIZE_T
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the `strerror' function. */
+#undef HAVE_STRERROR
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* Define to 1 if you have the ANSI C header files. */
+#undef STDC_HEADERS
+
+/* Define to the type of `sys_errlist' elements. */
+#undef SYS_ERRLIST_TYPE
+
+/* Define to empty if `const' does not conform to ANSI C. */
+#undef const

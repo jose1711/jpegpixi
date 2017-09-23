@@ -1,0 +1,78 @@
+/* This file is part of jpegpixi, a program to interpolate pixels in
+   JFIF image files.
+   Copyright (C) 2003, 2004, 2005 Martin Dickopp
+
+   Jpegpixi is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published
+   by the Free Software Foundation; either version 2 of the License,
+   or (at your option) any later version.
+
+   Jpegpixi is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with jpegpixi; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+   USA.  */
+
+#ifdef HAVE_CONFIG_H
+# include <config.h>
+#endif
+#include "util.h"
+
+#include <stdio.h>
+
+
+%%
+
+t threshold "=THRESHOLD specify threshold between noise and signal [default: 10%]"  reqarg
+i invert    "invert image (i.e. find dead pixels in an otherwise white image)"
+c comments  "output comments with luminosities of hot pixel blocks"
+  help      "display this help text and exit"                                       return
+  version   "display version information and exit"                                  return
+
+%%
+
+
+
+/* Display text in response to the --help command line option.  */
+void
+display_help_text (void)
+{
+    printf (_("Usage: %s [OPTION]... JPEG-FILE [PIXEL-BLOCKS-FILE]\n"
+              "Find hot pixels in an otherwise black JPEG image (default) or dead pixels in an\n"
+              "otherwise white JPEG image (if the `--invert' option is specified). Write their\n"
+              "coordinates to a pixel blocks file suitable for the jpegpixi program.\n\n"
+              "Options:\n"), invocation_name);
+    fputs (STR_HELP, stdout);
+
+    /* TRANSLATORS: Please include the information that bug reports
+       should be send in English.  E.g., translate "Please report bugs
+       (in English) to ...".  */
+     fputs (_("\nPlease report bugs to <martin@zero-based.org>.\n"), stdout);
+}
+
+
+
+/* Display text in response to the --version command line option.  */
+void
+display_version_text (void)
+{
+    fputs ("jpeghotp (" PACKAGE_NAME ") " PACKAGE_VERSION "\n", stdout);
+
+    /* TRANSLATORS: Please leave the copyright statement intact, but replace
+       "(C)" with the "copyright sign" (Unicode character <U00A9>).  */
+    fputs (_("Copyright (C) 2003, 2004, 2005 Martin Dickopp\n\n"), stdout);
+
+    /* TRANSLATORS: Please don't translate the warranty disclaimer
+       literally, but replace it with a text which has a legal effect as
+       close as possible to the original in the jurisdiction(s) where
+       your language is used. If unsure, replace it with a translation
+       of "There is no warranty, to the extent allowed by law."  */
+    fputs (_("This program is free software; it may be copied and/or modified under the\n"
+             "terms of the GNU General Public License version 2 or (at your option) any\n"
+             "later version. There is NO warranty; not even for MERCHANTABILITY or FIT-\n"
+             "NESS FOR A PARTICULAR PURPOSE.\n"), stdout);
+}

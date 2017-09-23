@@ -1,0 +1,145 @@
+.\" This file is part of jpegpixi, a program to interpolate pixels in
+.\" JFIF image files.
+.\" Copyright (C) 2002, 2003, 2004 Martin Dickopp
+.
+.\" The Finnish translation of this manual page is
+.\" Copyright (C) 2004 Jarno Elonen
+.
+.\" Jpegpixi is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published
+.\" by the Free Software Foundation; either version 2 of the License,
+.\" or (at your option) any later version.
+.
+.\" Jpegpixi is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.
+.\" You should have received a copy of the GNU General Public License
+.\" along with jpegpixi; if not, write to the Free Software
+.\" Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+.\" USA.
+.
+.TH JPEGPIXI 1 26-Sep-2004 "@PACKAGE_STRING@" "K‰yttˆkomennot"
+.SH NIMI
+jpegpixi \- interpoloi pikseleit‰ JFIF (JPEG) -kuvatiedostoista
+.SH YLEISKATSAUS
+.B jpegpixi
+.RI [ VALITSIN ]...\&
+.I LƒHDE KOHDE
+[[\fID\fR:]\fIX\fR,\fIY\fR[,\fIS\fR]|[,\fISX\fR,\fISY\fR]]...
+.SH KUVAUS
+Jpegpixi interpoloi pikseleit‰ ja pikselialueita JFIF-kuvatiedostoissa
+(joita kutsutaan yleens‰ "JPEG-kuviksi"). Interpoloimalla voidaan korjata
+viallisella CCD-kennolla varustetulla digitaalikameralla otettuja kuvia.
+Ohjelma muuttaa vain niit‰ DCT-blokkeja, jotka sis‰lt‰v‰t interpoloitavia
+pikseleit‰ ja ne pakataan t‰sm‰lleen samoilla parametreilla
+kuin mill‰ alkuper‰inen kuvakin pakattiin. Kuvan laatu huononee siis
+niin v‰h‰n kuin mahdollista.
+.PP
+.I LƒHDE
+ja
+.I KOHDE
+ovat l‰hde- ja kohdekuvatiedostojen nimi‰. Kumpikin voidaan korvata merkill‰
+.BR \- ,
+joka tarkoittaa stdin- ja/tai stdout-laitetta.
+.PP
+Kohdetiedoston nimen j‰lkeen voi tulla miten monta pikseli- tai pikseli-alue-m‰‰rityst‰
+tahansa. M‰‰ritys alkaa valinnaisella suuntamerkinn‰ll‰
+.RI ( D ),
+joka voi olla
+.B 2
+2-ulotteiselle interpolaatiolle (oletusarvo),
+.B V
+tai
+.B v
+1-ulotteiselle pystysuuntaiselle interpolaatiolle (esim. vaakasuorien raitojen poistoon), tai
+.B H
+tai
+.B h
+1-ulotteiselle vaakasuuntaiselle interpolaatiolle.
+.IR X , Y
+m‰‰r‰‰v‰t pikselin tai pikseli-alueen vasemman yl‰kulman paikan.
+.I S
+on pikselialueen koko (oletuksena 1). Alueelle voi vaihtoisesti m‰‰r‰t‰ erikseen
+leveyden
+.RI ( SX )
+ja korkeuden
+.RI ( SY ).
+.PP
+Numerot
+.RI ( X ,
+.IR Y ,
+.IR S ,
+.IR SX ,
+.IR SY )
+voivat olla absoluuttisia koordinaatteja/kokoja tai prosenttiosuuksia koko kuvasta.
+Jos numeron per‰ss‰ on prosenttimerkki
+.RB ( % ),
+se tulkitaan prosenttiosuudeksi ja muussa tapauksessa absoluuttiseksi arvoksi.
+.SH VALITSIMET
+.IP "\fB\-f\fR \fITIEDOSTO\fR, \fB\-\-blocks\-file\fR=\fITIEDOSTO\fR"
+Lukee pikseli-alueiden m‰‰ritykset komentorivin lis‰ksi tiedostosta
+.I TIEDOSTO
+. Tiedostossa kuuluu olla yksi m‰‰ritys
+([\fID\fR:]\fIX\fR,\fIY\fR[,\fIS\fR]|[,\fISX\fR,\fISY\fR]) rivi‰ kohti. Tyj‰t rivit
+ohitetaan. Tiedostossa voi olla myˆs kommentteja, jotka alkavat risuaidalla
+.RB ( # )
+ja jatkuvat rivin loppuun saakka.
+.IP "\fB\-m\fR \fIMENETELMƒ\fR, \fB\-\-method\fR=\fIMENETELMƒ\fR"
+K‰ytt‰‰ interpolointimenetelm‰‰
+.I MENETELMƒ
+(oletus:
+.BR linear ).
+Lue alempaa kohta INTERPOLOINTIMENETELMƒT.
+.IP "\fB\-v\fR, \fB\-\-verbose\fR"
+N‰ytt‰‰ interpoloitavien alueiden koot ja koordinaatit.
+.IP "\fB\-i\fR, \fB\-\-info\fR"
+N‰ytt‰‰ tietoja kuvasta. Esim. kuvan koko, pakkauksessa k‰ytetty v‰riavaruus ja
+eri komponenttien n‰ytteistystaajuudet.
+.IP "\fB\-s\fR, \fB\-\-strip\fR"
+Ei kopioi kommentteja eik‰ lis‰merkintˆj‰ l‰hdekuvasta kohdekuvaan. T‰m‰
+valitsin poistaa esikatselukuvat, EXIF-lohkot ja muut vastaavat tiedot.
+.IP "\fB\-\-help\fR"
+N‰ytt‰‰ lyhyen opasteen ja poistuu.
+.IP "\fB\-\-version\fR"
+N‰ytt‰‰ viersiotiedot ja poistuu.
+.SH "INTERPOLAATIOMENETELMƒT"
+.IP "\fB0\fR, \fBav\fR, \fBaverage\fR"
+Pikselialueen ymp‰rill‰ olevista pikseleist‰ lasketaan keskiarvo. Kaikki alueen
+sis‰‰n j‰‰v‰t pikselit korvataan tuloksella. Yksiulotteisen interpolaation tapauksessa
+keskiarvo lasketaan erikseen jokaiselle vaaka- tai pystysuoran juovan pikselille.
+.IP "\fB1\fR, \fBli\fR, \fBlinear\fR"
+Alueesta et‰isyydell‰ 1 olevista pikseleist‰ muodostetaan bilineaarinen pinta (2-ulotteinen)
+tai ryhm‰ lineaarisia k‰yri‰ (1-ulotteinen), joita k‰ytet‰‰n alueen sis‰‰n j‰‰vien pikselien
+v‰rin m‰‰r‰‰miseen.
+.IP "\fB2\fR, \fBqu\fR, \fBquadratic\fR"
+Alueesta et‰isyydell‰ 1 olevista pikseleist‰ muodostetaan bi-neliˆllinen pinta (2-ulotteinen)
+tai ryhm‰ toisen asteen k‰yri‰ (1-ulotteinen), joita k‰ytet‰‰n alueen sis‰‰n j‰‰vien pikselien
+v‰rin m‰‰r‰‰miseen.
+.IP "\fB3\fR, \fBcu\fR, \fBcubic\fR"
+Alueesta et‰isyydell‰ 1 olevista pikseleist‰ muodostetaan bi-kuutiollinen pinta (2-ulotteinen)
+tai ryhm‰ kolmannen asteen k‰yri‰ (1-ulotteinen), joita k‰ytet‰‰n alueen sis‰‰n j‰‰vien pikselien
+v‰rin m‰‰r‰‰miseen.
+.SH VIAT
+Vioista voi ilmoittaa (englanniksi) osoitteeseen <martin\-jpegpixi@zero\-based.org>.
+.SH TEKIJƒNOIKEUDET
+Copyright \(co 2002, 2003, 2004, 2005 Martin Dickopp
+.PP
+Takuuta EI ole; ei edes MYYNTIKUNNOSTA tai SOVELTUVUUDESTA TIETTYYN
+TARKOITUKSEEN. Voit levitt‰‰ ohjelmasta kopioita GNU General Public
+Licensen mukaisesti.
+Tiedostosta COPYING lˆyd‰t lis‰tietoja n‰ist‰ seikoista.
+.PP
+Ohjeen suomenkielisen k‰‰nnˆksen tekij‰noikeus on \(co 2004 Jarno Elonen
+<elonen@iki.fi>.
+.SH "KATSO MY÷S"
+.BR jpeghotp (1)
+.PP
+Jpegpixi:n kotisivu:
+http://www.zero\-based.org/software/jpegpixi/
+.
+.\" Local Variables:
+.\" mode: nroff
+.\" coding: iso-8859-1
+.\" End:

@@ -1,0 +1,97 @@
+.\" This file is part of jpegpixi, a program to interpolate pixels in
+.\" JFIF image files.
+.\" Copyright (C) 2003, 2004, 2005 Martin Dickopp
+.
+.\" The French translation of this manual page is
+.\" Copyright (C) 2004, 2005 Stephan Peccini
+.
+.\" Jpegpixi is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published
+.\" by the Free Software Foundation; either version 2 of the License,
+.\" or (at your option) any later version.
+.
+.\" Jpegpixi is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.
+.\" You should have received a copy of the GNU General Public License
+.\" along with jpegpixi; if not, write to the Free Software
+.\" Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+.\" USA.
+.
+.TH JPEGHOTP 1 18-Avr-2005 "@PACKAGE_STRING@" "Commandes utilisateur"
+.SH NAME
+jpeghotp \- trouve les pixels chauds ou morts dans une image JPEG qui,
+autrement, serait ou blanche noire
+.SH SYNOPSIS
+.B jpeghotp
+.RI [ OPTION ]...\&
+.I FICHIER-JPEG
+.RI [ FICHIER-BLOCS-PIXELS ]
+.SH DESCRIPTION
+Jpeghotp trouve automatiquement les pixels chauds dans une image JPEG,
+autrement noire (défaut), ou les pixels morts dans une image JPEG, autrement
+blanche (si l'option
+.B \-\-invert
+a été choisie). Le résultat est utilisable par le programme
+.BR jpegpixi (1)
+en tant que fichier de spécification des blocs de pixels. Une application
+typique est de réaliser une image prise avec une caméra numérique qui a
+des défauts.
+.PP
+Pour obtenir une image noire, prendre une photo dans le noir absolu ou avec
+le bouchon d'objectif. Pour obtenir une image blanche, prendre une photo
+surexposée d'une feuille de papier blanche bien éclairée.
+.PP
+.I FICHIER-JPEG
+est le nom du fichier de l'image JPEG à lire. Il peut être
+.BR \- ,
+qui réfère à l'entrée standard.
+.PP
+.I FICHIER-BLOCS-PIXELS
+est le nom du fichier dans lequel sont écrites les coordonnées et les
+tailles des blocs de pixels chauds (ou morts). S'il est omis, les coordonnées
+et les tailles sont écrites sur la sortie standard.
+.SH OPTIONS
+.IP "\fB\-t\fR \fISEUIL\fR, \fB\-\-threshold\fR=\fISEUIL\fR"
+Spécifie le seuil entre le bruit et le signal. Les luminosités des pixels
+en dessous du seuil sont considérées comme du bruit et celles au dessus
+comme des pixels chauds.
+.I SEUIL
+doit être un nombre entre 0 et 100 suivi par un caratère pourcent
+.RB ( % ).
+Le défaut est
+.BR 10% .
+.IP "\fB\-i\fR, \fB\-\-invert\fR"
+Inverse l'image. Si cette option est spécifiée, les pixels morts sont trouvés
+dans une image qui serait autrement blanche au lieu des pixels chauds dans
+une image noire.
+.IP "\fB\-c\fR, \fB\-\-comments\fR"
+Fournit les commentaires avec les luminosités des blocs de pixels. Ce
+peut être utile pour affiner le fichier des bocs de pixels à la main.
+.IP "\fB\-\-help\fR"
+Affiche un court texte  d'aide et sort immédiatement.
+.IP "\fB\-\-version\fR"
+Affiche l'information sur la version et sort immédiatement.
+.SH BUGS
+Merci de faire parvenir les rapports de bug en anglais à :
+<martin\-jpegpixi@zero\-based.org>.
+.SH COPYRIGHT
+Copyright \(co 2003, 2004, 2005 Martin Dickopp
+.PP
+Traduction française par : Copyright \(co 2004, 2005 Stephan Peccini
+.PP
+Jpeghopt est libre; voir les sources pour les conditions de
+reproduction. AUCUNE garantie n'est donnée, tant pour des raisons
+COMMERCIALES que pour RÉPONDRE À UN BESOIN PARTICULIER.
+.SH "VOIR AUSSI"
+.BR jpegpixi (1)
+.PP
+The jpegpixi homepage:
+http://www.zero\-based.org/software/jpegpixi/
+.
+.\" Local Variables:
+.\" mode: nroff
+.\" coding: iso-8859-1
+.\" End:

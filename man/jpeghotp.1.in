@@ -1,0 +1,90 @@
+.\" This file is part of jpegpixi, a program to interpolate pixels in
+.\" JFIF image files.
+.\" Copyright (C) 2003, 2004, 2005 Martin Dickopp
+.
+.\" Jpegpixi is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published
+.\" by the Free Software Foundation; either version 2 of the License,
+.\" or (at your option) any later version.
+.
+.\" Jpegpixi is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.
+.\" You should have received a copy of the GNU General Public License
+.\" along with jpegpixi; if not, write to the Free Software
+.\" Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+.\" USA.
+.
+.TH JPEGHOTP 1 18-Apr-2005 "@PACKAGE_STRING@" "User Commands"
+.SH NAME
+jpeghotp \- find hot or dead pixels in otherwise black or white JPEG images
+.SH SYNOPSIS
+.B jpeghotp
+.RI [ OPTION ]...\&
+.I JPEG-FILE
+.RI [ PIXEL-BLOCKS-FILE ]
+.SH DESCRIPTION
+Jpeghotp automatically finds hot pixels in an otherwise black JPEG image
+(default) or dead pixels in an otherwise white JPEG image (if the
+.B \-\-invert
+option is specified). The output is suitable as a pixel block
+specification file for the
+.BR jpegpixi (1)
+program. A typical application is to process an image taken with a digital
+camera with CCD defects.
+.PP
+To obtain a black image, take a picture in total darkness or with
+covered lens. To obtain a while image, take an overexposed picture of a
+well-lit piece of white paper.
+.PP
+.I JPEG-FILE
+is the filename of the JPEG image to read. It can be
+.BR \- ,
+which refers to standard input.
+.PP
+.I PIXEL-BLOCKS-FILE
+is the name of the file to write the coordinates and sizes of the hot
+(or dead) pixel blocks to. If it is omitted, the coordinates and sizes
+are written to standard output.
+.SH OPTIONS
+.IP "\fB\-t\fR \fITHRESHOLD\fR, \fB\-\-threshold\fR=\fITHRESHOLD\fR"
+Specify the threshold between noise and signal. Pixel luminosities below
+the threshold are considered CCD noise, luminosities above are considered
+hot pixels.
+.I THRESHOLD
+must be a number between 0 and 100 followed by a percent character
+.RB ( % ).
+The default is
+.BR 10% .
+.IP "\fB\-i\fr, \fB\-\-invert\fR"
+Invert the image. If this option is specified, dead pixels in an
+otherwise white image instead of hot pixels in an otherwise black image
+are found.
+.IP "\fB\-c\fR, \fB\-\-comments\fR"
+Output comments with the luminosities of the hot (or dead) pixel blocks.
+This can be helpful in hand tuning the pixel blocks file.
+.IP "\fB\-\-help\fR"
+Display a short help text and exit immediately.
+.IP "\fB\-\-version\fR"
+Display version information and exit immediately.
+.SH BUGS
+Please report bugs to <martin\-jpegpixi@zero\-based.org>.
+.SH COPYRIGHT
+Copyright \(co 2003, 2004, 2005 Martin Dickopp
+.PP
+Jpeghotp is free software; it may be copied and/or modified under the
+terms of the GNU General Public License version 2 or (at your option)
+any later version. There is NO warranty; not even for MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE.
+.SH "SEE ALSO"
+.BR jpegpixi (1)
+.PP
+The jpegpixi homepage:
+http://www.zero\-based.org/software/jpegpixi/
+.
+.\" Local Variables:
+.\" mode: nroff
+.\" coding: iso-8859-1
+.\" End:

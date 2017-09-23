@@ -1,0 +1,155 @@
+.\" This file is part of jpegpixi, a program to interpolate pixels in
+.\" JFIF image files.
+.\" Copyright (C) 2002, 2003, 2004 Martin Dickopp
+.
+.\" The French translation of this manual page is
+.\" Copyright (C) 2004 Stephan Peccini
+.
+.\" Jpegpixi is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published
+.\" by the Free Software Foundation; either version 2 of the License,
+.\" or (at your option) any later version.
+.
+.\" Jpegpixi is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.
+.\" You should have received a copy of the GNU General Public License
+.\" along with jpegpixi; if not, write to the Free Software
+.\" Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+.\" USA.
+.
+.TH JPEGPIXI 1 26-Sep-2004 "@PACKAGE_STRING@" "Commandes utilisateur"
+.SH NAME
+jpegpixi \- interpolation des pixels dans les fichiers image JFIF (JPEG)
+.SH SYNOPSIS
+.B jpegpixi
+.RI [ OPTION ]...\&
+.I SOURCE DEST
+[[\fID\fR:]\fIX\fR,\fIY\fR[,\fIS\fR]|[,\fISX\fR,\fISY\fR]]...
+.SH DESCRIPTION
+Jpegpixi interpole les pixels ou les blocs de pixels des fichiers images
+JFIF (appelés communément "images JPEG"). Il est utile de corriger les images
+issues d'une caméra numérique avec des défauts. Seuls les blocs DCT qui
+contiennent les pixels devant être interpolés sont décodés et réencodés,
+et le réencodage est réalisé avec exactement les mêmes paramètres que ceux
+avec lesquels l'image a été initialement encodée. Ainsi, la qualité d'image
+est préservée autant que possible.
+.PP
+.I SOURCE
+et
+.I DEST
+sont les noms des fichiers source et destination, respectivement.
+Dans les deux cas,
+.B \-
+peut être utilisé ; il correspond à l'entrée standard ou la sortie
+standard.
+.PP
+Le fichier destination est suivi par les spécifications des pixels ou blocs
+de pixels. Cette suite de spécifications démarre avec un argument optionnel
+de direction
+.RI ( D ),
+qui peut être
+.B 2
+pour une interpolation bi-dimensionnelle (le défaut),
+.B V
+ou
+.B v
+pour une interpolation uni-dimensionnelle verticale (exemple : pour
+supprimer les bandes horizontales), ou
+.B H
+ou
+.B h
+pour une interpolation uni-dimensionnelle horizontale.
+.IR X , Y
+sont les coordonnées du pixel ou du coin haut-gauche du bloc de pixels.
+.I S
+est la taille du bloc de pixel (1 par défaut). Alternativement,
+des tailles séparées peuvent être spécifiées pour la largeur
+.RI ( SX )
+et la hauteur
+.RI ( SY ).
+.PP
+Tous les nombres
+.RI ( X ,
+.IR Y ,
+.IR S ,
+.IR SX ,
+.IR SY )
+peuvent être exprimés soit comme des coordonnées/tailles absolues, soit
+comme des pourcentages de la taille de l'image. Si un nombre est suivi par
+le caractère pourcent
+.RB ( % ),
+il est interprété comme un pourcentage, sinon comme une valeur absolue.
+.SH OPTIONS
+.IP "\fB\-f\fR \fIFICHIER\fR, \fB\-\-blocks\-file\fR=\fIFICHIER\fR"
+Lit les spécifications des blocs de pixels depuis le fichier
+.I FICHIER
+en plus de la ligne de commande. Le fichier doit contenir une spécification
+([\fID\fR:]\fIX\fR,\fIY\fR[,\fIS\fR]|[,\fISX\fR,\fISY\fR]) par ligne. Les
+lignes vides sont ignorées. Le fichier peut aussi contenir des commentaires,
+qui commencent par un dièse
+.RB ( # )
+et vont jusqu'à la fin de la ligne
+.IP "\fB\-m\fR \fIMETHODE\fR, \fB\-\-method\fR=\fIMETHODE\fR"
+Utiliser la méthode d'interpolation
+.I METHODE
+(défaut :
+.BR linear ).
+Voir la section METHODES D'INTERPOLATION ci-dessous.
+.IP "\fB\-v\fR, \fB\-\-verbose\fR"
+Affiche les coordonnées et la taille de chaque block de pixels qui est
+interpolé.
+.IP "\fB\-i\fR, \fB\-\-info\fR"
+Affiche l'information à propos de l'image, comme la taille, l'espace
+de couleurs dans lequel elle est encodée, et le taux d'échantillonnage
+pour les différents composants.
+.IP "\fB\-s\fR, \fB\-\-strip\fR"
+Ne pas copier les commentaires et les marqueurs supplémentaires de la
+source vers la destination. Ceci supprime les images de prévisualisation,
+les données EXIF et les informations similaires.
+.IP "\fB\-\-help\fR"
+Affiche un texte court d'aide et sort immédiatement.
+.IP "\fB\-\-version\fR"
+Affiche l'information de version et sort immédiatement.
+.SH "INTERPOLATION METHODS"
+.IP "\fB0\fR, \fBav\fR, \fBaverage\fR"
+Les pixels adjacents au bloc de pixels sont moyennés. La couleur résultante
+est assignée aux pixels du bloc. Pour une interpolation uni-dimensionnelle,
+ceci est fait séparément par bande horizontale ou verticale de 1 pixel de large.
+.IP "\fB1\fR, \fBli\fR, \fBlinear\fR"
+Les pixels qui sont à une distance de 1 du bloc de pixels sont utilisés pour
+calculer une surface bilinéraire (2D), ou un groupe de courbes linéraires (1D),
+qui sert ensuite à assigner les couleurs aux pixels dans le bloc.
+.IP "\fB2\fR, \fBqu\fR, \fBquadratic\fR"
+Les pixels qui sont à une distance de 2 ou moins du bloc de pixels sont
+utilisés pour calculer une surface biquadratique (2D), ou un groupe de
+courbes quadratiques (1D), qui sert ensuite à assigner les couleurs aux
+pixels dans le bloc.
+.IP "\fB3\fR, \fBcu\fR, \fBcubic\fR"
+Les pixels qui sont à une distance de 3 ou moins du bloc de pixels sont
+utilisés pour calculer une surface bicubique (2D), ou un groupe de
+courbes cubiques (1D), qui sert ensuite à assigner les couleurs aux
+pixels dans le bloc.
+.SH BUGS
+Merci de faire parvenir les rapports de bug en anglais à :
+<martin\-jpegpixi@zero\-based.org>.
+.SH COPYRIGHT
+Copyright \(co 2002, 2003, 2004, 2005 Martin Dickopp
+.PP
+Traduction française par : Copyright \(co 2004 Stephan Peccini
+.PP
+Jpegpixi est libre; voir les sources pour les conditions de
+reproduction. AUCUNE garantie n'est donnée, tant pour des raisons
+COMMERCIALES que pour RÉPONDRE À UN BESOIN PARTICULIER.
+.SH "VOIR AUSSI"
+.BR jpeghotp (1)
+.PP
+The jpegpixi homepage:
+http://www.zero\-based.org/software/jpegpixi/
+.
+.\" Local Variables:
+.\" mode: nroff
+.\" coding: iso-8859-1
+.\" End:

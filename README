@@ -1,0 +1,61 @@
+Jpegpixi - JPEG pixel interpolator
+==================================
+
+
+What is it?
+-----------
+
+"Jpegpixi" is short for "JPEG pixel interpolator". The intent of the program
+is to interpolate pixels in JFIF images (commonly referred to as "JPEG
+images"). This is useful to correct images from a digital camera with CCD
+defects. For example, if one pixel is always bright green, this pixel can be
+interpolated away with jpegpixi.
+
+Jpegpixi is unique in that it tries to preserve the quality of the JFIF
+image as much as possible. Usual graphics programs decode JFIF images when
+they are loaded, and re-encode them when they are saved, which results in an
+overall loss of quality. Jpegpixi, on the other hand, does not decode and
+re-encode the image, but manipulates the encoded image data (known as the
+"discrete cosine transformation coefficients"). Therefore, the blocks
+(typically 8x8, 8x16, or 16x16 pixel areas) which contain the pixels to be
+interpolated are minimally disturbed, and other blocks remain pixel-by-pixel
+identical to the original image.
+
+Jpegpixi is a command line utility. It is Free Software, released under the
+GNU General Public License (GPL). The full text of the GPL is contained in
+the file `COPYING'.
+
+This software is based in part on the work of the Independent JPEG Group.
+See `README.jpeglib' for copyright and license information.
+
+
+Installation
+------------
+
+The file `INSTALL' contains general installation instructions. If you have not
+yet read it, please do so now.
+
+To build jpegpixi, you must have the JPEG library by the Independent JPEG Group
+(version 6b or later) installed. It can be downloaded from
+<ftp://ftp.uu.net/graphics/jpeg/jpegsrc.v6b.tar.gz>.
+
+You can specify the location of the JPEG library when you run the `configure'
+script with the option `--with-jpeglib' or the options `--with-jpeglib-include'
+and `--with-jpeglib-lib'. Please type `./configure --help' for more information.
+
+The files `optpixi.c' and `optpixi.h' are built from `jpegpixi.opag', and the
+files `opthotp.c' and `opthotp.h' are built from `jpeghotp.opag', with `opag',
+a command line option parser generator. If you want to modify `jpegpixi.opag'
+or `jpeghotp.opag', but don't have `opag' installed, you can download it from
+<http://www.zero-based.org/software/opag/>. Version 0.7.0 or later is required.
+You can also specify the location of the `opag' executable when you run the
+`configure' script with the option `--with-opag'. Please type `./configure
+--help' for more information.
+
+
+Usage
+-----
+
+Please read the manual page for detailed instructions. For a usage example,
+please see the "Example" section on the jpegpixi homepage at
+<http://www.zero-based.org/software/jpegpixi/>.

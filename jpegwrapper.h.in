@@ -1,0 +1,53 @@
+/* Do not edit jpegwrapper.h; edit jpegwrapper.h.in instead!  */
+
+/* This file is part of jpegpixi, a program to interpolate pixels in
+   JFIF image files.
+   Copyright (C) 2002 Martin Dickopp
+
+   Jpegpixi is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published
+   by the Free Software Foundation; either version 2 of the License,
+   or (at your option) any later version.
+
+   Jpegpixi is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with jpegpixi; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+   USA.  */
+
+#ifndef JPEGWRAPPER_H
+#define JPEGWRAPPER_H 1
+
+
+/* Undefine potentially conflicting configuration macros.  */
+#undef const
+#undef HAVE_STDDEF_H
+#undef HAVE_STDLIB_H
+
+/* <jpeglib.h> requires <stdio.h>.  */
+#include <stdio.h>
+
+/* Include jpeglib header.  */
+#include <jpeglib.h>
+
+/* Test compatibility.  */
+#if JPEG_LIB_VERSION < 62
+# error "This program requires jpeglib version 6b or later."
+#endif
+#if DCTSIZE != 8
+# error "This program does not support DCTSIZE != 8."
+#endif
+
+/* Restore configuration macros.  */
+#undef void
+#undef const
+#if @MD_NO_CONST@
+# define const
+#endif
+
+
+#endif /* !defined JPEGWRAPPER_H */

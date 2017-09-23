@@ -1,0 +1,156 @@
+.\" This file is part of jpegpixi, a program to interpolate pixels in
+.\" JFIF image files.
+.\" Copyright (C) 2004 Martin Dickopp
+.
+.\" Jpegpixi is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published
+.\" by the Free Software Foundation; either version 2 of the License,
+.\" or (at your option) any later version.
+.
+.\" Jpegpixi is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.
+.\" You should have received a copy of the GNU General Public License
+.\" along with jpegpixi; if not, write to the Free Software
+.\" Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+.\" USA.
+.
+.TH JPEGPIXI 1 02-Oct-2004 "@PACKAGE_STRING@" "Userkommandos"
+.SH NAME
+jpegpixi \- interpoliert Pixel in JFIF- (JPEG-) Bilddateien
+.SH SYNTAX
+.B jpegpixi
+.RI [ OPTION ]...\&
+.I QUELLDATEI ZIELDATEI
+[[\fID\fR:]\fIX\fR,\fIY\fR[,\fIS\fR]|[,\fISX\fR,\fISY\fR]]...
+.SH BESCHREIBUNG
+Jpegpixi interpoliert Pixel oder Pixelblöcke in JFIF-Bilddateien
+(üblicherweise als "JPEG-Bilder" bezeichnet). Dies ist nützlich, um
+Bilder zu korrigieren, die mit einer Digitalkamera mit CCD-Defekten
+aufgenommen wurden.  Nur die DCT-Blöcke, die die zu interpolierenden
+Pixel enthalten, werden dekodiert und wieder kodiert, und die erneute
+Kodierung erfolgt mit exakt den gleichen Parametern, die bei der
+ursprünglichen Erzeugung des Bildes verwendet wurden. Dadurch wird die
+Bildqualität so gut wie möglich erhalten.
+.PP
+.I QUELLDATEI
+und
+.I ZIELDATEI
+sind die Dateinamen der Quell- und Zieldatei. In beiden Fällen kann
+.B \-
+verwendet werden, was für Standardeingabe bzw.\& -ausgabe steht.
+.PP
+Dem Zieldateinamen folgt eine beliebige Anzahl von Pixel- bzw.\&
+Pixelblockspezifikationen. Eine solche beginnt mit einer optionalen
+Richtungsangabe
+.RI ( D ),
+die
+.B 2
+für zweidimensionale Interpolation,
+.B V
+oder
+.B v
+für eindimensionale vertikale Interpolation (z.B.\ um horizontale
+Streifen zu entfernen), oder
+.B H
+oder
+.B h
+für eindimensionale horizontale Interpolation sein kann.  Wird die
+Richtungsangabe weggelassen, erfolgt zweidimensionale Interpolation.
+.IR X , Y
+sind die Koordinaten des Pixels oder der linken oberen Ecke des
+Pixelblocks.
+.I S
+ist die Größe des Pixelblocks (standardmäßig 1). Alternative können
+separate Größen für die Breite
+.RI ( SX )
+und die Höhe
+.RI ( SY )
+angegeben werden.
+.PP
+Alle Zahlenangaben
+.RI ( X ,
+.IR Y ,
+.IR S ,
+.IR SX ,
+.IR SY )
+können als absolute Koordinaten bzw.\& Größen oder relativ zur Bildgröße
+angegeben werden. Wenn einer Zahl ein Prozentzeichen
+.RB ( % )
+folgt, wird sie als prozentualer Teil der Bildbreite bzw.\ -höhe
+aufgefaßt, andernfalls als absolute Angabe.
+.SH OPTIONEN
+.IP "\fB\-f\fR \fIDATEINAME\fR, \fB\-\-blocks\-file\fR=\fIDATEINAME\fR"
+Zusätzlich zur Kommandozeile werden Pixelblockspezifikationen aus der
+Datei
+.I DATEINAME
+gelesen. Die Datei muß eine Spezifikation
+([\fID\fR:]\fIX\fR,\fIY\fR[,\fIS\fR]|[,\fISX\fR,\fISY\fR]) pro Zeile
+enthalten. Leere Zeilen werden ignoriert. Die Datei darf Kommentare
+enthalten, welche mit dem Zeichen
+.B #
+eingeleitet werden und sich jeweils bis zum Zeilenende erstrecken.
+.IP "\fB\-m\fR \fIMETHODE\fR, \fB\-\-method\fR=\fIMETHODE\fR"
+Es wird Interpolationsmethode
+.I METHODE
+benutzt (standardmäßig
+.BR linear ).
+Siehe INTERPOLATIONSMETHODEN unten.
+.IP "\fB\-v\fR, \fB\-\-verbose\fR"
+Die Koordinaten und Größe jedes Pixelblocks, der interpoliert wird, werden
+angezeigt.
+.IP "\fB\-i\fR, \fB\-\-info\fR"
+Zeigt Informationen über das Bild an, nämlich die Größe des Bildes, den
+Farbraum, in dem es kodiert wurde, und das Sampling der verschiedenen
+Komponenten.
+.IP "\fB\-s\fR, \fB\-\-strip\fR"
+Kommentare und zusätzliche Marker in der Quelldatei werden nicht in die
+Zieldatei übernommen. Dadurch werden Vorschaubilder, EXIF-Daten und
+ähnliche Informationen entfernt.
+.IP "\fB\-\-help\fR"
+Zeigt einen kurzen Hilfe-Text an und beendet das Programm danach sofort.
+.IP "\fB\-\-version\fR"
+Zeigt die Programmversion an und beendet das Programm danach sofort.
+.SH INTERPOLATIONSMETHODEN
+.IP "\fB0\fR, \fBav\fR, \fBaverage\fR"
+Der Mittelwert von zum Pixelblock benachbarten Pixeln wird berechnet. Die
+resultierende Farbe wird allen Pixeln im Pixelblock zugewiesen. Im Falle
+der eindimensionalen Interpolation wird dies separat für 1 Pixel breite,
+horizontale oder vertikale Streifen vorgenommen.
+.IP "\fB1\fR, \fBli\fR, \fBlinear\fR"
+Pixel mit einem Abstand von 1 zum Pixelblock werden benutzt, um eine
+bilineare Fläche (zweidimensional) oder eine Schar von linearen Kurven
+(eindimensional) zu berechnen. Die Fläche oder Kurvenschar wird
+benutzt, um den Pixeln im Pixelblock Farben zuzuweisen.
+.IP "\fB2\fR, \fBqu\fR, \fBquadratic\fR"
+Pixel mit einem Abstand von 2 oder weniger zum Pixelblock werden
+benutzt, um eine biquadratische Fläche (zweidimensional) oder eine
+Schar von quadratischen Kurven (eindimensional) zu berechnen. Die
+Fläche oder Kurvenschar wird benutzt, um den Pixeln im Pixelblock
+Farben zuzuweisen.
+.IP "\fB3\fR, \fBcu\fR, \fBcubic\fR"
+Pixel mit einem Abstand von 3 oder weniger zum Pixelblock werden
+benutzt, um eine bikubische Fläche (zweidimensional) oder eine Schar
+von kubischen Kurven (eindimensional) zu berechnen. Die Fläche oder
+Kurvenschar wird benutzt, um den Pixeln im Pixelblock Farben zuzuweisen.
+.SH FEHLER
+Bitte melden Sie Programmfehler an <martin\-jpegpixi@zero\-based.org>.
+.SH COPYRIGHT
+Copyright \(co 2002, 2003, 2004, 2005 Martin Dickopp
+.PP
+Jpegpixi ist Freie Software; es darf unter den Bedingungen der "GNU
+General Public License" Version 2 (oder wahlweise einer späteren Version
+dieser Lizenz) kopiert und/oder modifiziert werden. Soweit gesetzlich
+zulässig, ist jegliche Gewährleistung ausgeschlossen.
+.SH "SIEHE AUCH"
+.BR jpeghotp (1)
+.PP
+Die Jpegpixi-Homepage:
+http://www.zero\-based.org/software/jpegpixi/
+.
+.\" Local Variables:
+.\" mode: nroff
+.\" coding: iso-8859-1
+.\" End:

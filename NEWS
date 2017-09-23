@@ -1,0 +1,145 @@
+Version 1.1.1:
+* Fixed typo in English jpegpixi manual page.
+* Updated postal address of the Free Software Foundation.
+
+Version 1.1.0:
+* In addition to hot pixels in an otherwise black image, the `jpeghotp'
+  program can now also find dead pixels in an otherwise white image.
+* Fail gracefully if the locale cannot be set.
+
+Version 1.0.3:
+* Stephan Peccini <stephan@tesenca.info> has contributed French
+  translations of the manual pages and the message catalog. Thank
+  you, Stephan!
+
+Version 1.0.2:
+* Spelling mistakes in the German message catalog have been corrected.
+* Minor cleanup of the code and build infrastructure. Split some
+  messages to make the job of translators easier.
+
+Version 1.0.1:
+* Jarno Elonen <elonen@iki.fi> has contributed Finnish translations of
+  the manual pages and the message catalog. Thank you, Jarno!
+
+Version 1.0.0:
+* Native Language Support is provided. The package contains a message
+  catalog with German translations.
+* With Native Language Support, all intended features are implemented.
+  Therefore, the major version number is changed to 1.
+
+Version 0.16.0:
+* German translations of the manual pages are provided. This is the
+  first step towards Native Language Support in the programs themselves.
+
+Version 0.15.1:
+* Following a proposal on the debian-legal mailinglist (see
+  <http://lists.debian.org/debian-legal/2004/05/msg00150.html> and
+  followups), license information (i.e. the output shown if the
+  `--version' command line option is specified) is put into a separate
+  section `.license' in the executable, if possible.  The contents of
+  this section can be dumped with the GNU binutils, using the command:
+  objcopy -O binary -j .license /path/to/jpegpixi `tty`
+* Bug fix: Link with math library (-lm) if necessary.
+
+Version 0.15.0:
+* The `jpegpixi' program has a new command line option `--verbose' to
+display coordinates and sizes of interpolated pixel blocks.
+* Bug fix: Warn if overlapping pixel blocks are specified.
+* Bug fix: Consolidate adjacent pixel blocks. For example, if `42,17'
+and `43,17' are specified, the behavior is the same as if `42,17,2,1'
+had been specified instead.
+* Bug fix: Work correctly in extreme cases where almost the whole image
+is interpolated.
+
+Version 0.14.2:
+* The `jpeghotp' program can output comments with the luminosities of
+the hot pixel blocks. This can be helpful in "hand tuning" the pixel
+blocks file.
+
+Version 0.14.1:
+* Jarno Elonen <elonen@iki.fi> will maintain the jpegpixi Debian package;
+therefore the `debian' directory has been removed.
+
+Version 0.14:
+* A new program `jpeghotp' is provided. It finds hot pixels in an
+otherwise black JPEG image.
+* Spelling mistakes in the manual page corrected.
+
+Version 0.13:
+* Coordinates and sizes can not only be specified as absolute values, but
+also as percentages of the image size.
+
+Version 0.12:
+* Jpegpixi now parses command line options with code generated with `opag',
+an option parser generator by the same author. This has no user-visible effect.
+
+Version 0.11:
+* No code changes at all. The only purpose of this release is to incorporate
+a change of the home page and the author's e-mail address.
+
+Version 0.10:
+* Pixel block specifications can be read from a file (in addition to
+the command line).
+
+Version 0.9:
+* In addition to 2-dimensional interpolation, 1-dimensional interpolation is
+now also supported. The latter can be used to remove horizontal or vertical
+stripes which span the whole image or a large part of it. Thanks to Evgeny
+Stambulchik for suggesting this.
+* Bug fixes.
+
+Version 0.8:
+* The size of the block to be interpolated is now only limited by available
+memory.
+* Jpegpixi does no longer use precalculated tables for the interpolation;
+this reduces the size of the executable.
+* Especially for low-quality images, the (inevitable) quality loss in the
+vicinity of interpolated pixels is now even smaller. To achieve this, the
+optimal threshold for the rounding of DCT coefficients has been empirically
+determined.
+* Huffman tables are re-calculated for the output image, resulting in a
+smaller file size in some cases.
+* It is no longer possible to print debugging output. Maintaining this
+functionality is too much of a hassle for too little benefit.
+
+Version 0.7:
+* Bug fix: Pixels near the image edges are treated correctly.
+* More verbose debugging output.
+* Uses automake 1.7.5.
+
+Version 0.6:
+* The package uses autoconf 2.57 and automake 1.7.2.
+* A `debian' subdirectory to build a Debian package is provided.
+
+Version 0.5:
+* There is now a manual page.
+* The maximum size of the pixel block to be interpolated has been
+increased to 5x5 pixels.
+* The package uses automake 1.6.1.
+
+Version 0.4:
+* Biquadratic and bicubic interpolation are supported in addition to
+averaging and bilinear interpolation.
+
+Version 0.3:
+* The size of the pixel block to be interpolated can be specified
+(up to 3x3 pixels).
+* Interpolation engine rewritten from scratch. Averaging and bilinear
+interpolation are available as interpolation methods. Quadratic
+interpolation has been taken out and will be added again to a later
+version. CAUTION: The names of the interpolation methods (`-m' option)
+have changed.
+
+Version 0.2:
+* Bug fixes. Now jpegpixi works reasonably well with low quality JFIF
+images.
+* New command line option `-d' to display debugging information (e.g.
+the DCT coefficients before and after the interpolation).
+* Interpolation method can be specified on the command line. The
+following methods are supported:
+  - average of 4 adjacent pixels
+  - average of 8 surrounding pixels
+  - quadratic surface defined by 12 nearest pixels
+
+Version 0.1:
+* First release.

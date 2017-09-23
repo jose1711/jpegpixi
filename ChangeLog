@@ -1,0 +1,501 @@
+2005-11-20  Martin Dickopp  <martin@zero-based.org>
+
+	* Updated postal address of the Free Software Foundation.
+	* jpeghotp.c (main): Make `threshold' unsigned.
+	* man/jpegpixi.1.in: Fixed typo.
+	* Version 1.1.1.
+
+2005-06-01  Martin Dickopp  <martin@zero-based.org>
+
+	* Version 1.1.0.
+
+2005-04-18  Martin Dickopp  <martin@zero-based.org>
+
+	* Changed all occurrences of my e-mail address to
+	`martin@zero-based.org'.
+	* jpeghotp.opag, jpeghotp.c: New option `--invert' to invert the
+	image.
+
+2005-01-18  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* po/de.po: Convert quotation marks to those usually used in
+	printed text.
+
+2005-01-14  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* jpegpixi.c (main), jpeghotp.c (main): Verify that `setlocale',
+	`bindtextdomain', and `textdomain' don't fail.
+	* jpegpixi.opag, jpeghotp.opag, configure.ac: Update copyright
+	statements to include the year 2005.
+
+2004-11-01  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* Makefile.am, jpegpixi.c, jpeghotp.c: Remove `dirs.h'. Define
+	`LOCALEDIR' macro in CPPFLAGS.
+
+2004-10-16  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* Makefile.am: Only #define `LOCALEDIR' in `dirs.h' if it is not
+	yet defined. That way, the user can override it by defining it on
+	the command line.
+	* jpegpixi.c, jpeghotp.c, file.c: Translate strings even if they
+	contain no text. This accounts for different spacing rules in
+	different languages.
+
+2004-10-15  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* man/fr/jpegpixi.1.in, man/fr/jpeghotp.1.in, po/fr.po:
+	French translations contributed by Stephan Peccini
+	<stephan@tesenca.info>.
+	* Version 1.0.3.
+
+2004-10-08  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* configure.ac, man/jpegpixi.1.in, man/jpeghotp.1.in,
+	man/de/jpegpixi.1.in, man/de/jpeghotp.1.in, man/fi/jpegpixi.1.in,
+	man/fi/jpeghotp.1.in: Remove `PACKAGE_BUGREPORT_ROFF', hard-code
+	bug reporting address.
+	* jpegpixi.opag (display_help_text), jpeghotp.opag
+	(display_help_text): Hard-code bug reporting address.
+	* jpegpixi.opag (display_help_text, display_version_text),
+	jpeghotp.opag (display_help_text, display_version_text): Split
+	messages into smaller parts to make translations easier.
+	* Version 1.0.2.
+
+2004-10-05  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* Makefile.am: Don't prefix dependencies with `$(srcdir)/'.
+	* po/de.po: Corrected spelling mistakes.
+	* po/Makefile.am: Don't create localedir explicitly. More robust
+	regex to strip file extension.
+	* po/Makefile.am, jpegpixi.c (main), jepghotp.c (main): Use
+	`PACKAGE_TARNAME' as the base name of the message catalog.
+	* po/Makefile.am, jpegpixi.opag, jpeghotp.opag: Add various hints
+	for translators.
+
+2004-10-04  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* man/fi/jpegpixi.1.in, man/fi/jpeghotp.1.in, po/fi.po: Finnish
+	translations contributed by Jarno Elonen <elonen@iki.fi>.
+	* po/Makefile.am: Bug fix, `make uninstall' now works (i.e.
+	removes the message catalogs).
+	* Version 1.0.1.
+
+2004-10-03  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* strerror.c: Remove NLS support from this file.
+	* acinclude.m4: Macro `MD_PROG_LD_SECTIONS' removed (no longer
+	needed).
+	* configure.ac: Remove `MD_PROG_LD_SECTIONS'.
+	* util.h: Remove macro `gcc_attr_section'.
+
+2004-10-02  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* file.c, interpolate.c, jpeghotp.c, jpegpixi.c, strerror.c: Mark
+	strings for translation.
+	* jpeghotp.c, jpegpixi.c: Set up locale support.
+	* jpeghotp.opag, jpegpixi.opag: Strings `usage_text' and
+	`version_text' replaced by functions `display_help_text' and
+	`display_version_text', respectively.
+	* util.h: Define NLS macros `_' and `N_'.
+	* acinclude.m4: New macro `MD_NLS'.
+	* po: New directory; contains NLS files.
+	* Makefile.am: New conditional subdir `po'. New rule to build
+	`dirs.h'. Modified `opag' invocation to support NLS. New rule to
+	build `po/POTSOURCES'.
+	* configure.ac: Invoke `MD_NLS'. Create `po/Makefile'.
+	* Version 1.0.0.
+
+2004-09-26  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* configure.ac, man/jpegpixi.1.in, man/jpeghotp.1.in,
+	man/de/jpegpixi.1.in, man/de/jpeghotp.1.in: New variable
+	`PACKAGE_BUGREPORT_ROFF' which quotes the `-' character in the bug
+	reporting e-mail address.
+
+2004-08-23  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* jpegpixi.1.in, jpeghotp.1.in: Move to new subdirectory `man'.
+	* Provide German translations of the manual pages in `man/de'.
+	* Version 0.16.0.
+
+2004-08-20  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* jpegpixi.1.in, jpeghotp.1.in: Use correct `-' character in URLs.
+
+2004-05-06  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* acinclude.m4: New macro `MD_PROG_LD_SECTIONS'.
+	* util.h: New macro `gcc_attr_section'.
+	* jpegpixi.opag, jpegpixi.c, jpeghotp.opag, jpeghotp.c: Put
+	license text in a section `.license' in the executables, if
+	possible.
+	* Version 0.15.1.
+
+2004-05-04  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* interpolate.c: Declare `fabs' if <math.h> is not found.
+
+2004-04-22  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* configure.ac, Makefile.am: Link `jpegpixi' with `-lm' if
+	necessary.
+
+2004-04-18  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* jpegpixi.h, jpegpixi.c, file.c, interpolate.c: Renamed
+	`struct point_s' to `struct point_dimdir_s'.
+	* jpeghotp.c: Renamed `struct point_s' to `struct point_lumi_s';
+	moved declaration to `jpegpixi.h'.
+	* jpegpixi.h: New `struct point_s', contained in `struct
+	point_dimdir_s' and `struct point_lumi_s'.
+	* parsenum.h: File removed, content moved to `jpegpixi.h'.
+	* parsenum.c (parse_number): Parse `unsigned int' instead of
+	`int'.
+	* rbtree.h: Replace `rbtree_create' and `rbtree_destroy' inline
+	functions by macros.
+	* rbtree.c (rbtree_insert): Check if a node already
+	exists. Callers changed.
+	* consolidate.c: New file.
+	* jpeghotp.c (consolidate_pixels): Moved to `consolidate.c'.
+	* jpegpixi.c (main): Store points in a tree instead of an array.
+	* file.c (init_files): New function, split off from
+	`process_file'.
+	* file.c (process_file): Process points in a tree instead of an
+	array.
+	* interpolate.c (interpolate): Adapt to new layout of
+	`struct point_dimdir_s'.
+	* interpolcate.c (set_weighted_pixels): Bug fix: Take possibility
+	of negative weight sum into account.
+	* jpegpixi.opag, interpolate.c (interpolate): New command line
+	option `--verbose'.
+	* jpegpixi.c (parse_struct_point_dimdir_s): Convert relative to
+	absolute coordinates and sizes.
+	* file.c (process_file): Don't convert relative to absolute
+	coordinates and sizes.
+	* Version 0.15.0.
+
+2004-03-05  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* jpeghotp.opag: New command line option `--comments'.
+	* jpeghot.c (main, consolidate_pixels): Implement calculation and
+	output of luminosities.
+	* jpeghotp.1.in: Document `--comments' command line option.
+	* Version 0.14.2.
+
+2004-01-26  Martin Dickopp  <martin-jpegpixi@zero-based.org>
+
+	* debian: Directory removed. Jarno Elonen <elonen@iki.fi> will
+	maintain the jpegpixi Debian package.
+	* Changed all occurrences of my e-mail address to
+	`martin-jpegpixi@zero-based.org'.
+
+2004-01-11  Martin Dickopp  <martin@zero-based.org>
+
+	* parsenum.c, parsenum.h: New files.
+	* jpegpixi.c (parse_number): Moved to `parsenum.c'.
+	* jpeghot.p (main): Implement `--threshold' command line argument.
+	* Version 0.14.
+
+2004-01-09  Martin Dickopp  <martin@zero-based.org>
+
+	* jpeghotp.c: Implemented.
+	* rbtree.c (rbtree_delete): New function.
+
+2003-12-30  Martin Dickopp  <martin@zero-based.org>
+
+	* options.c: Renamed to optpixi.c.
+	* options.h: Renamed to optpixi.h.
+	* jpeghotp.c, jpeghotp.opag, jpeghotp.1.in: New files.
+	* Makefile.am: Rules du build jpeghotp.
+
+2003-12-11  Martin Dickopp  <martin@zero-based.org>
+
+	* jpegpixi.1.in: Correction of spelling mistakes; limit number of
+	command arguments to six.
+
+2003-11-24  Martin Dickopp  <martin@zero-based.org>
+
+	* Version 0.13.
+
+2003-11-21  Martin Dickopp  <martin@zero-based.org>
+
+	* jpegpixi.c (parse_number): New function, parses absolute numbers
+	or percentages (i.e. relative numbers).
+	* jpegpixi.c (parse_struct_point_s): Parse numbers (coordiantes
+	and sizes) with `parse_number'.
+	* file.c (process_file): Convert relative numbers in `points'
+	elements to absolute ones.
+	* jpegpixi.opag: Document relative numbers in help text.
+
+2003-11-16  Martin Dickopp  <martin@zero-based.org>
+
+	* Version 0.12.
+
+2003-08-23  Martin Dickopp  <martin@zero-based.org>
+
+	* acinclude.m4: New macro `MD_PATH_PROG'.
+	* configure.ac: Check for `opag' program.
+	* Makefile.am: Rule to build options.c and options.h from
+	jpegpixi.opag.
+	* getopt.c, getopt.h, getopt1.c: Removed.
+	* configure.ac, util.h: Remove check for `memcpy'.
+	* configure.ac, util.h: Check for `strchr' declaration.
+	* jpegpixi.c, jpegpixi.h, file.c: Adapted to opag.
+
+2003-08-22  Martin Dickopp  <martin@zero-based.org>
+
+	* jpegpixi.opag: New file, command line option definitions
+	and help and version texts.
+	* options.c, options.h: New built sources (from jpegpixi.opag).
+	* jpegpixi.c: Take help and version texts from options.c.
+
+2003-07-29  Martin Dickopp  <martin@zero-based.org>
+
+	* Version 0.11.
+
+2003-07-29  Martin Dickopp  <martin@zero-based.org>
+
+	* Changed all occurrences of my e-mail address to
+	`martin@zero-based.org'.
+	* Changed all occurrences of home page to
+	`http://www.zero-based.org/software/jpegpixi/'.
+
+2003-07-06  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* strerror.c: New file, contains implementation of strerror
+	function.
+	* util.c (my_strerror): Removed.
+	* acinclude.m4 (MD_CHECK_HEADER_DECL): Removed.
+
+2003-07-05  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* Version 0.10.
+
+2003-06-27  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* rbtree.c (rbtree_insert): Slightly more efficient initialization
+	of the new node.
+	* jpegpixi.c (main): Remove deprecated method names `bilinear',
+	`biquadratic', `bicubic'.
+	* jpegpixi.c (main): Allow number of pixel blocks to be zero.
+	* file.c (process_file): Likewise.
+	* jpegpixi.c: Pixel block specifications can be read from a file.
+
+2003-06-22  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* Version 0.9.
+
+2003-06-22  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* interpolate.c, jfif.c, jpegpixi.c, jpegpixi.h, rbtree.c,
+	rbtree.h: Don't invoke `gcc_attr_nonnull' without argument; pass
+	empty list instead. Thanks to Dariush Pietrzak for reporting this.
+	* jpegpixi.c (parse_struct_point_s): Parse dimension/direction
+	specification.
+	* jpegpixi.c (main): Handle dimension/direction specification.
+	* jpegpixi.c (main): Deprecate the terms `bilinear',
+	`biquadratic', `bicubic'.
+	* interpolate.c (interpolate, set_weighted_pixels): Handle
+	1-dimensional interpolation.
+	* weights.c (get_weights): Likewise.
+
+2003-06-22  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* Version 0.8.
+
+2003-06-21  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* rbtree.c, rbtree.h: Overhauled implementation.
+	* mkdcttable.pl: Removed again, no longer needed.
+	* dct.c (fdct, coeff): Functions added again.
+	* dct.c (coeff): Round DCT coefficients as empirically determined
+	best.
+	* jfif.c: Instead of tracking differences of DCT coefficients,
+	pixel values are manipulated directly. Finally, `fdct' is used to
+	transform back into frequency space.
+	* file.c (process_file): Request optimization of Huffman tables.
+	* jfif.c (get_block): Cache pointer to previously requested DCT
+	block.
+	* jfif.c (set_pixel): Clamp pixel value.
+	* jfif.c (get_pixel, set_pixel): Expect downsampled coordinates.
+	* interpolate.c (interpolate): Implement averaging with new
+	functions from jfif.c
+	* jpegpixi.h, jpegpixi.c (main): Remove debugging option.
+	* interpolate.c (interpolate): Likewise.
+	* jpegpixi.c (parse_struct_point_s): Don't limit block size.
+	* weights.c: New file, calclation of weights for interpolation.
+	* mkwghtable.c, wghtable.c: Removed; precalculated weights are not
+	used anymore.
+
+2003-06-18  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* mkdcttable.pl: Perl script to generate DCT table, replaces
+	mkdcttable.c.
+	* dct.c (fdct, coeff): Functions removed.
+	* dct.c (idct): Don't scale output values.
+	* interpolate.c (set_pixel): Renamed to `set_pixel1', so that
+	there is no name conflict with `set_pixel' in jfif.c.
+	* jfif.c: Modification of pixel values implemented.
+	* rbtree.c, rbtree.h (rbtree_insert): Pointer to copied data block
+	can be returned to caller.
+	* rbtree.c (rbtree_next): Fixed.
+
+2003-06-17  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* configure.ac, util.h: Check for `memcpy' function, use `bcopy'
+	if not available.
+	* jpegwrapper.h.in: Include <stdio.h>.
+	* wghtable.c: Don't include <stdio.h>.
+	* jfif.c: New file, functions to access JFIF image in memory.
+	* dct.c: New file, forward and inverse discrete cosine
+	transformation.
+	* jpegpixi.h: Prototypes for functions in jfif.c and dct.c.
+	* rbtree.c, rbtree.h: New files, red-black tree implementation.
+
+2003-06-02  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* Version 0.7.
+
+2003-05-10  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* util.h: Define macro `gcc_attr_nonnull' to use
+	__attribute__((nonnull)) on GCC 3.3 or newer.
+	* interpolate.c, jpegpixi.c, jpegpixi.h: Use `gcc_attr_nonnull'
+	macro.
+
+2003-04-17  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* interpolate.c (DXDY_VALID macro): Round correctly for pixels
+	near the image edges.
+	* interpolate.c (interpolate, set_weighted_pixels): Print number
+	of sampled pixels in debugging mode.
+
+2003-04-07  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* Makefile.am, configure.ac, acinclude.m4: Change license of these
+	files.
+
+2003-04-02  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* jpegpixi.c: Change <getopt.h> to "getopt.h".
+
+2003-01-11  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* Version 0.6.
+
+2003-01-10  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* debian: New directory with files to build Debian package.
+
+2002-11-20  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* util.c (mem_alloc_failed): Don't hardcode length of error
+	message.
+
+2002-10-08  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* configure.ac: Adapted to autoconf 2.54 and automake 1.7.
+
+2002-10-06  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* getopt.c, getopt1.c: Updated to glibc 2.3 versions.
+
+2002-06-15  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* Version 0.5.
+
+2002-06-15  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* configure.ac: Updated for automake 1.6.1.
+
+2002-06-04  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* Renamed mktable.c to mkdcttable.c.
+	* Renamed mkweights.c to mkwghtable.c.
+	* wghtable.c: New file to contain weights for interpolation.
+	* interpolate.c: Removed weights; they are read from the tables in
+	wghtable.c instead.
+	* interpolate.c: Support pixel block sizes up to 5.
+
+2002-06-04  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* mkweights.c: Generate tables instead of code.
+
+2002-05-30  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* Version 0.4.
+
+2002-05-30  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* mkweights.c: Support biquadratic and bicubic interpolation.
+	* interpolate.c: Support biquadratic and bicubic interpolation.
+
+2002-05-29  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* mkweights.c: Changed type of weights from `int' to `double'.
+	* interpolate.c: Changed type of weights from `int' to `float'.
+
+2002-05-28  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* mkweights.c: New helper program to generate code which performs
+	a polynomial interpolation.
+	* interpolate.c (do_bilinear_interpolation): New function to
+	perform a bilinear interpolation. Contains code generated with
+	helper program `mkweights'.
+
+2002-05-28  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* Version 0.3.
+
+2002-05-27  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* util.c (mem_alloc_failed): Call `write' with third argument of
+	correct type (`size_t' instead of `ssize_t').
+	* Renamed `struct xy_s' to `struct point_s'; new fields
+	`int x_size' and `int y_size'.
+	* jpegpixi.c (parse_struct_point_s): New function to parse command
+	line coordinate specification.
+	* jpegpixi.c (main): Use new function `parse_struct_point_s'.
+	* file.c (process_file): Use size when checking validity of
+	coordinates.
+	* interpolate.c: Rewrite of interpolation engine. Support for
+	averaging and bilinear interpolation.
+
+2002-05-17  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* Version 0.2.
+
+2002-05-17  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* interpolate.c: Take quantization coefficients into account.
+	* interpolate.c (interpolate): Clamp pixel value to allowed range.
+
+2002-05-15  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* interpolate.c (interpolate): Simplify calculation of weighted
+	average by use of a preprocessor macro.
+	* interpolate.c (interpolate): New interpolation method: use
+	12 nearest pixels to calculate a quadratic surface.
+	* interpolate.c (interpolate): Include downsampled component
+	dimensions in debugging information.
+	* file.c (process_file): Remove test for 1x1 images.
+
+2002-05-14  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* jpegpixi.c (main): New command line option to specify
+	interpolation method.
+	* interpolate.c (interpolate): Handle pixels at the edge or in the
+	corner of the image correctly.
+	* interpolate.c (interpolate): New interpolation method: average
+	8 surrounding pixels.
+
+2002-05-10  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* interpolate.c (interpolate): Display debugging information
+	(block and pixel coordinates, DCT coefficients before and after
+	interpolation) for each component on request.
+
+2002-05-09  Martin Dickopp  <mdickopp@users.sourceforge.net>
+
+	* Version 0.1.
